@@ -51,7 +51,7 @@ const content = [
 
 export default function WhyChooseUs({ }: Props) {
     return (
-        <div className="">
+        <div className=''>
             <StickyScroll content={content} />
         </div>
     )
