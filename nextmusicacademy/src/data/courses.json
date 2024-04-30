@@ -1,0 +1,104 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "title": "HTML Fundamentals",
+            "slug": "html-fundamentals",
+            "description": "Learn the basics of HTML, the foundation of web development, to create structured web pages.",
+            "price": 99.99,
+            "instructor": "John Doe",
+            "isFeatured": true,
+            "image": "/courses/html.jpg"
+        },
+        {
+            "id": 2,
+            "title": "CSS for Beginners",
+            "slug": "css-for-beginners",
+            "description": "Start styling your web pages with CSS, the language for controlling the presentation of HTML elements.",
+            "price": 109.99,
+            "instructor": "Jane Smith",
+            "isFeatured": false,
+            "image": "/courses/css.jpg"
+        },
+        {
+            "id": 3,
+            "title": "JavaScript Essentials",
+            "slug": "javascript-essentials",
+            "description": "Enhance your web development skills with essential JavaScript concepts for building interactive websites.",
+            "price": 119.99,
+            "instructor": "Emily Johnson",
+            "isFeatured": true,
+            "image": "/courses/javascript.jpg"
+        },
+        {
+            "id": 4,
+            "title": "React Mastery",
+            "slug": "react-mastery",
+            "description": "Master React, a popular JavaScript library for building user interfaces, to create dynamic and interactive web applications.",
+            "price": 129.99,
+            "instructor": "Mike Brown",
+            "isFeatured": false,
+            "image": "/courses/react.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Node.js Development",
+            "slug": "nodejs-development",
+            "description": "Learn Node.js, a server-side JavaScript runtime, to build scalable and efficient web applications.",
+            "price": 139.99,
+            "instructor": "Chris Davis",
+            "isFeatured": false,
+            "image": "/courses/nodejs.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Mobile App Development with React Native",
+            "slug": "mobile-app-development-react-native",
+            "description": "Dive into cross-platform mobile app development with React Native, a framework for building native mobile apps using React.",
+            "price": 149.99,
+            "instructor": "Alex Wilson",
+            "isFeatured": true,
+            "image": "/courses/react-native.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Angular Essentials",
+            "slug": "angular-essentials",
+            "description": "Learn the essentials of Angular, a popular framework for building client-side web applications.",
+            "price": 159.99,
+            "instructor": "Samantha Miller",
+            "isFeatured": false,
+            "image": "/courses/angular.jpg"
+        },
+        {
+            "id": 8,
+            "title": "Express.js Fundamentals",
+            "slug": "expressjs-fundamentals",
+            "description": "Create robust server-side applications with Express.js, a web application framework for Node.js.",
+            "price": 169.99,
+            "instructor": "Luke Harris",
+            "isFeatured": true,
+            "image": "/courses/expressjs.jpg"
+        },
+        {
+            "id": 9,
+            "title": "MongoDB for Web Developers",
+            "slug": "mongodb-for-web-developers",
+            "description": "Explore MongoDB, a NoSQL database, and learn how to use it in web development projects.",
+            "price": 179.99,
+            "instructor": "Grace Lee",
+            "isFeatured": false,
+            "image": "/courses/mongodb.jpg"
+        },
+        {
+            "id": 10,
+            "title": "Full Stack Web Development",
+            "slug": "full-stack-web-development",
+            "description": "Discover the techniques of full stack web development to become proficient in both front-end and back-end technologies.",
+            "price": 189.99,
+            "instructor": "Ethan Moore",
+            "isFeatured": true,
+            "image": "/courses/full-stack.jpg"
+        }
+    ]
+}
