@@ -1,7 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import TestimonialCard from "@/components/TestimonialCard";
+import UpcomingWebinar from "@/components/UpcomingWebinar";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import FeaturedCourses from "@/components/ui/FeaturedCourses";
+import FeaturedCourses from "@/components/FeaturedCourses";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <FeaturedCourses />
       <WhyChooseUs />
       <TestimonialCard />
+      <UpcomingWebinar />
     </main>
   );
 }

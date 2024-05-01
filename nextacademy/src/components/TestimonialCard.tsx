@@ -8,47 +8,43 @@ type Props = {}
 export default function TestimonialCard({ }: Props) {
     return (
         <>
-            <div className="relative h-full w-full bg-slate-950">
-                <div className="absolute bottom-0 left-0 right-0 top-0 bg-gradient-to-right from-gray-600 to-transparent bg-[linear-gradient(to_right,#4f4f4f2e_2px,transparent_2px),linear-gradient(to_bottom,#4f4f4f2e_2px,transparent_2px)] bg-[size:28px_32px] h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center overflow-hidden">
-                    <InfiniteMovingCards
-                        items={testimonials}
-                        direction="right"
-                        speed="slow"
-                    />
-                </div>
+            <div className="h-[40rem] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+                <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+                <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
             </div>
-
         </>
     )
 }
+
 const testimonials = [
     {
         quote:
-            "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-        name: "Charles Dickens",
-        title: "A Tale of Two Cities",
+            "Throughout the web development process, we focused on user-centric design principles and cutting-edge technologies, resulting in a highly intuitive and engaging user experience. Our collaboration with the design team ensured seamless integration of visual elements, enhancing the overall aesthetics of the platform.",
+        name: "John Doe",
+        title: "Lead Web Developer",
     },
     {
         quote:
-            "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-        name: "William Shakespeare",
-        title: "Hamlet",
-    },
-    {
-        quote: "All that we see or seem is but a dream within a dream.",
-        name: "Edgar Allan Poe",
-        title: "A Dream Within a Dream",
+            "In mobile app development, we prioritized performance and functionality, delivering a feature-rich application that meets the needs of modern users. By leveraging native APIs and optimizing code efficiency, we achieved smooth performance across various devices and platforms.",
+        name: "Jane Smith",
+        title: "Mobile App Developer",
     },
     {
         quote:
-            "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-        name: "Jane Austen",
-        title: "Pride and Prejudice",
+            "Our web application development team embraced an agile approach, allowing us to iterate quickly and adapt to evolving requirements. By fostering collaboration and communication, we delivered a scalable and robust solution that exceeded our client's expectations.",
+        name: "Alex Johnson",
+        title: "Senior Web Developer",
     },
     {
         quote:
-            "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-        name: "Herman Melville",
-        title: "Moby-Dick",
+            "As a mobile app designer, I focused on creating an intuitive and visually appealing user interface that enhances usability and engagement. By conducting thorough user research and prototyping, we crafted a seamless mobile experience that delights users and drives retention.",
+        name: "Emily Brown",
+        title: "Mobile App Designer",
+    },
+    {
+        quote:
+            "Our web development team's commitment to excellence drove the success of our latest project. By meticulously planning and executing each stage of development, we delivered a high-quality web solution that not only meets but exceeds our client's business objectives.",
+        name: "Michael Wilson",
+        title: "Web Development Team Lead",
     },
 ];
