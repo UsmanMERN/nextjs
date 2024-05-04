@@ -44,7 +44,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
                                 <h2 style="text-align: center;">Email Verification</h2>
                                 <p>Welcome to our platform! Please click the button below to verify your email address:</p>
                                 <div style="text-align: center; margin-top: 20px;">
-                                    <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Verify Email</a>
+                                    <a href="${process.env.DOMAIN}/api/users/verifyemail?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Verify Email</a>
                                 </div>
                                 <p>If you didn't create an account with us, you can safely ignore this email.</p>
                                 <p>Thank you,<br>Usman</p>
@@ -69,7 +69,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
                                 <h2 style="text-align: center;">Password Reset</h2>
                                 <p>You have requested to reset your password. Click the button below to reset it:</p>
                                 <div style="text-align: center; margin-top: 20px;">
-                                    <a href="${process.env.DOMAIN}/resetpassword?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Reset Password</a>
+                                    <a href="${process.env.DOMAIN}/api/users/resetpassword?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Reset Password</a>
                                 </div>
                                 <p>If you didn't request this, you can safely ignore this email.</p>
                                 <p>Thank you,<br>Usman</p>
