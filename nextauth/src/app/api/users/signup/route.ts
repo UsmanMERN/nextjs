@@ -10,11 +10,7 @@ connect();
 export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json();
-
         const { username, email, password } = reqBody
-
-        // validation
-        console.log('username', username)
 
         const user = await User.findOne({ email })
 
@@ -23,25 +19,15 @@ export async function POST(request: NextRequest) {
         }
 
         const salt = await bcryptjs.genSalt(10);
-
         const hashedPassword = await bcryptjs.hash(password, salt);
 
-        const newUser = new User({
-            username, email, password: hashedPassword
-        })
-
+        const newUser = new User({ username, email, password: hashedPassword })
         const savedUser = await newUser.save()
-
-        console.log('savedUser', savedUser)
-
-        // send verification email
 
         await sendEmail({ email, emailType: 'VERIFY', userId: savedUser._id })
 
         return NextResponse.json({
-            message: "User registered successfully",
-            success: true,
-            savedUser
+            message: "User registered successfully", success: true, savedUser
         })
     } catch (error: any) {
         return NextResponse.json({ error: error.message }, { status: 500 })

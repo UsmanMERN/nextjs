@@ -5,6 +5,9 @@ import nodemailer from "nodemailer"
 export const sendEmail = async ({ email, emailType, userId }: any) => {
     try {
 
+        console.log('email ', email)
+        console.log('emailType', emailType)
+        console.log('userId', userId)
         const hashedToken = await bcryptjs.hash(userId.toString(), 10);
         let updateFields = {};
 
@@ -14,7 +17,8 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
             updateFields = { forgotPasswordToken: hashedToken, forgotPasswordTokenExpiry: Date.now() + 3600000 };
         }
 
-        await User.findByIdAndUpdate(userId, updateFields);
+        const updatedUser = await User.findByIdAndUpdate(userId, { $set: { verifyToken: hashedToken, verifyTokenExpiry: new Date(Date.now() + 36000) } });
+
 
         var transporter = nodemailer.createTransport({
             host: "sandbox.smtp.mailtrap.io",
