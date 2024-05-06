@@ -5,9 +5,6 @@ import nodemailer from "nodemailer"
 export const sendEmail = async ({ email, emailType, userId }: any) => {
     try {
 
-        console.log('email ', email)
-        console.log('emailType', emailType)
-        console.log('userId', userId)
         const hashedToken = await bcryptjs.hash(userId.toString(), 10);
         let updateFields = {};
 
@@ -17,15 +14,14 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
             updateFields = { forgotPasswordToken: hashedToken, forgotPasswordTokenExpiry: Date.now() + 3600000 };
         }
 
-        const updatedUser = await User.findByIdAndUpdate(userId, { $set: { verifyToken: hashedToken, verifyTokenExpiry: new Date(Date.now() + 36000) } });
+        const updateData = await User.findByIdAndUpdate(userId, { $set: { updateFields } });
 
-
-        var transporter = nodemailer.createTransport({
+        var transport = nodemailer.createTransport({
             host: "sandbox.smtp.mailtrap.io",
             port: 2525,
             auth: {
-                user: "59d7f45ac22559",
-                pass: "ee5e1ade3566d1"
+                user: process.env.MAILTRAP_USER,
+                pass: process.env.MAILTRAP_PASS
             }
         });
 
@@ -48,7 +44,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
                                 <h2 style="text-align: center;">Email Verification</h2>
                                 <p>Welcome to our platform! Please click the button below to verify your email address:</p>
                                 <div style="text-align: center; margin-top: 20px;">
-                                    <a href="${process.env.DOMAIN}/api/users/verifyemail?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Verify Email</a>
+                                    <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Verify Email</a>
                                 </div>
                                 <p>If you didn't create an account with us, you can safely ignore this email.</p>
                                 <p>Thank you,<br>Usman</p>
@@ -73,7 +69,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
                                 <h2 style="text-align: center;">Password Reset</h2>
                                 <p>You have requested to reset your password. Click the button below to reset it:</p>
                                 <div style="text-align: center; margin-top: 20px;">
-                                    <a href="${process.env.DOMAIN}/api/users/resetpassword?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Reset Password</a>
+                                    <a href="${process.env.DOMAIN}/resetpassword?token=${hashedToken}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Reset Password</a>
                                 </div>
                                 <p>If you didn't request this, you can safely ignore this email.</p>
                                 <p>Thank you,<br>Usman</p>
@@ -82,11 +78,27 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
                     </html>`
             };
         }
+        // console.log('mailOption', mailOption)
 
-        const mailResponse = await transporter.sendMail(mailOption);
+        // Send the email
+        const mailResponse = await transport.sendMail(mailOption)
+            .catch((error: any) => {
+                console.error("Error sending email:", error);
+                throw new Error("Failed to send email");
+            });
 
+        return mailResponse;
+
+        console.log('mailResponse', mailResponse)
         return mailResponse;
     } catch (error: any) {
         throw new Error(error.message);
     }
 }
+
+
+
+
+
+
+// TEVHKD9ZEVM87SCMTWLYHFUS

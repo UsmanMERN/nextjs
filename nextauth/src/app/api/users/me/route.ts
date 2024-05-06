@@ -9,11 +9,8 @@ connect()
 export async function POST(request: NextRequest) {
     try {
         // extract data from token
-        console.log('first')
         const userId = await getDataFromToken(request)
-        console.log('userId', userId)
         const user = await User.findById({ _id: userId }).select('-password')
-        // console.log('user', user)
         return NextResponse.json({ message: "User found", data: user })
     }
     catch (error: any) {

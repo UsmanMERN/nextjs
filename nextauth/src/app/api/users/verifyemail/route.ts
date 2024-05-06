@@ -7,9 +7,7 @@ connect()
 export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json()
-
         const { token } = reqBody
-        console.log('token', token)
 
         if (token) {
         }
@@ -17,8 +15,6 @@ export async function POST(request: NextRequest) {
         if (!user) {
             return NextResponse.json({ error: "Invalid token" }, { status: 400 })
         }
-
-        console.log('user', user)
 
         user.isVerified = true
         user.verifyToken = undefined
