@@ -9,8 +9,6 @@ export async function POST(request: NextRequest) {
         const reqBody = await request.json()
         const { token } = reqBody
 
-        if (token) {
-        }
         const user = await User.findOne({ verifyToken: token, verifyTokenExpiry: { $gt: Date.now() } })
         if (!user) {
             return NextResponse.json({ error: "Invalid token" }, { status: 400 })
