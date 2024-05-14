@@ -14,8 +14,10 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
             updateFields = { forgotPasswordToken: hashedToken, forgotPasswordTokenExpiry: Date.now() + 3600000 };
         }
 
-        const updateData = await User.findByIdAndUpdate(userId, { $set: { updateFields } });
+        const updateData = await User.findByIdAndUpdate(userId, { $set: updateFields });
 
+
+        // console.log('updateData', updateData)
         var transport = nodemailer.createTransport({
             host: "sandbox.smtp.mailtrap.io",
             port: 2525,
