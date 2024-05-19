@@ -15,9 +15,6 @@ export async function POST(request: Request) {
         }
 
         const existingUserEmail = await userModal.findOne({ email })
-        // if (existingUserEmail) {
-        //     if
-        // }
         if (existingUserEmail) {
             if (existingUserEmail.isVerified) {
                 return Response.json({ success: false, message: "User already exist" }, { status: 400 })
@@ -28,10 +25,8 @@ export async function POST(request: Request) {
                 const expiryDate = new Date()
                 expiryDate.setHours(expiryDate.getHours() + 1)
                 existingUserEmail.verifyCodeExpiry = expiryDate
-                // const newUser = new userModal({ username, email, password: hashedPassword, verifyCode, verifyCodeExpiry: expiryDate, isVerified: false, isAcceptingMessge: true, messages: [] })
                 await existingUserEmail.save()
             }
-            // return Response.json({ success: false, message: "username is already taken" }, { status: 400 })
         } else {
             const hashedPassword = await bcrypt.hash(password, 10)
             const expiryDate = new Date()
